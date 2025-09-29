@@ -75,10 +75,10 @@
   .quiz-head, .learn-head{ display:flex; align-items:center; gap:10px; flex-wrap:wrap; padding:10px 12px; background:linear-gradient(90deg, rgba(109,131,242,0.12), rgba(34,197,220,0.10)); border:1px solid var(--border); border-radius:12px }
   .timer{font-weight:900; color:#2563eb}
   .question{ margin-top:14px; padding:12px; border:1px dashed var(--border); border-radius:14px; background:linear-gradient(180deg, #ffffff, #f8fbff) }
-  .qtitle{font-size:16px; font-weight:900}
+  .qtitle{font-size:20px; font-weight:700; white-space:nowrap} /* keep question on one row */
   .kana{color:#1e3a8a; font-weight:800; margin-left:8px}
   .choices{display:grid; gap:10px; margin-top:10px; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)) }
-  .choice{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:12px; background:var(--chip); border:1px solid var(--border); color:#0f172a; font-weight:800; transition: transform .06s ease, background .1s ease, border-color .1s ease, box-shadow .1s ease }
+  .choice{ display:flex; align-items:center; gap:10px; padding:10px 12px; border-radius:12px; background:var(--chip); border:1px solid var(--border); color:#0f172a; font-weight:600; transition: transform .06s ease, background .1s ease, border-color .1s ease, box-shadow .1s ease }
   .choice:hover{ transform: translateY(-1px); background:var(--chip-h); box-shadow:0 2px 10px rgba(99,102,241,.08) }
   .choice .dot{ width:18px; height:18px; border-radius:50%; border:3px solid #94a3b8; background:transparent; flex:0 0 auto }
   .choice.active{ border-color:var(--chip-sel); box-shadow:0 0 0 2px rgba(56,189,248,0.25) inset }
@@ -156,6 +156,16 @@
   /* Hide Romaji toggling in quiz areas */
   #quizarea.hide-romaji .romaji,
   #megaQuizarea.hide-romaji .romaji { display:none; }
+
+  /* Inline romaji and kana in question (one row) */
+  .qtitle .romaji { display:inline; font-size:22px; font-weight:700; margin-left:8px; }
+  .qtitle .kana  { display:inline; font-size:20px; font-weight:700; color:#1e3a8a; margin-left:6px; }
+  .qtitle .romaji strong { font-weight:inherit; }
+
+  /* Vertical stacking of Romaji and Kana in options (keep as column) */
+  .choice .romaji { display:block; font-size:18px; font-weight:600; margin-bottom:3px; }
+  .choice .kana  { display:block; font-size:18px; font-weight:700; color:#1e3a8a; }
+  .choice .romaji strong { font-weight:inherit; }
 </style>
 </head>
 <body>
